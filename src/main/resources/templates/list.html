@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>list of Sandwich</title>
+    <style>
+        img
+        {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div th:each="sandwich: ${sandwiches}" class="col-4 card" style="width: 18rem;">
+
+                <img th:src="${sandwich.image}" class="card-img-top" alt="sandwich image">
+
+                <h5 class="card-title" th:text = "${sandwich.name}"></h5>
+                <h6 class="card-subtitle" th:text = "${sandwich.price}"></h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><p class="card-text" th:inline="text"> [[${sandwich.calorie}]] calories</p></li>
+                    <li class="list-group-item"><p class="card-text" th:text = "${sandwich.ingredient}"></p></li>
+                </ul>
+
+            <div class="card-body">
+                <div><a th:href="@{/update/{id} (id=${sandwich.id})}">Update</a> -
+                    <a th:href="@{/delete/{id} (id=${sandwich.id})}">Delete</a> -
+                    <a th:href="@{/detail/{id} (id=${sandwich.id})}">Detail</a>
+                </div>
+            </div>
+            </tr>
+        </div>
+    </div>
+<a href="/add">Add new Sandwich</a>
+</div>
+</body>
+</html>

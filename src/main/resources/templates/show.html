@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Detail of Sandwitch</title>
+</head>
+<body>
+<a href="/">Go to list</a>
+<a th:href="@{/delete/{id} (id=${sandwich.id})}">Delete</a>
+<table>
+    <tr>
+        <td>/</td>
+        <td><img th:src="${sandwich.image}" alt="sandwich image"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><p th:text="${sandwich.name}"></p></td>
+    </tr>
+
+    <tr>
+        <td>Price</td>
+        <td><p th:text="${sandwich.price}"></p></td>
+    </tr>
+
+    <tr>
+        <td>Calories</td>
+        <td><p th:text="${sandwich.calorie}"></p></td>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td><p th:text="${sandwich.ingredient}"></p></td>
+    </tr>
+</table>
+</body>
+</html>

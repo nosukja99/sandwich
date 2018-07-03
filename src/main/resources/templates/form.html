@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add New SandWitch</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${sandwich}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}">
+
+    <input type="file" name="file">
+    Name: <input type="text" th:field="*{name}">
+    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"></span>
+
+    Price: <input type="number" step="0.01" th:field="*{price}">
+    <span th:if="${#fields.hasErrors('price')}" th:error="*{price}"></span>
+
+    Calorie: <input type="number" th:field="*{calorie}">
+    <span th:if="${#fields.hasErrors('calorie')}" th:error="*{calorie}"></span>
+
+    Ingredients: <input type="text" th:field="*{ingredient}">
+    <span th:if="${#fields.hasErrors('ingredient')}" th:error="*{ingredient}"></span>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
